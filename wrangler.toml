@@ -1,4 +1,4 @@
-name = "pokerengine-packages"
+name = "poker-packages"
 compatibility_date = "2026-01-22"
 main = "workers-site/index.js"
 
