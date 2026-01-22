@@ -1,7 +1,5 @@
 name = "pokerengine-packages"
-type = "javascript"
 compatibility_date = "2026-01-22"
 
-[site]
-bucket = "./"
-entry-point = "workers-site"
+type = "javascript"  # optional, or remove entirely
+site = { bucket = "./", include = ["*"], exclude = [] }
