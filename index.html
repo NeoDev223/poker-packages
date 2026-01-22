@@ -5,30 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PokerEngine Package Registry</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: #1e1e2f;
             color: #ffffff;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
         header {
-            background-color: #3b3b5f;
-            padding: 2rem;
+            background: linear-gradient(90deg, #3b3b5f, #1e1e2f);
+            padding: 3rem 1rem;
             text-align: center;
+            animation: fadeIn 1s ease-out;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: #f0a500;
+            text-shadow: 0 0 10px #f0a500;
+            animation: glow 2s infinite alternate;
         }
 
         main {
-            max-width: 800px;
+            max-width: 900px;
             margin: 2rem auto;
             padding: 0 1rem;
+            animation: fadeIn 1.5s ease-out;
         }
 
         p {
@@ -40,9 +47,11 @@
             color: #f0a500;
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s;
         }
 
         a:hover {
+            color: #ffd700;
             text-decoration: underline;
         }
 
@@ -53,24 +62,67 @@
             color: #888;
             margin-top: 4rem;
             font-size: 0.9rem;
+            animation: fadeIn 2s ease-out;
         }
 
         .package-list {
             margin-top: 2rem;
             padding: 0;
             list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
         }
 
         .package-list li {
             background-color: #2a2a3f;
             margin: 0.5rem 0;
             padding: 1rem;
-            border-radius: 8px;
-            transition: transform 0.2s;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transform: translateY(30px);
+            opacity: 0;
+            animation: slideUp 0.6s forwards;
+            animation-delay: 0.2s;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
         }
 
         .package-list li:hover {
-            transform: scale(1.02);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 20px #f0a500;
+            background-color: #3b3b5f;
+        }
+
+        .package-list li a {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.3rem 0.6rem;
+            background-color: #f0a500;
+            color: #1e1e2f;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .package-list li a:hover {
+            background-color: #ffd700;
+            color: #000;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px #f0a500, 0 0 10px #f0a500; }
+            100% { text-shadow: 0 0 20px #ffd700, 0 0 40px #f0a500; }
         }
     </style>
 </head>
@@ -79,13 +131,22 @@
         <h1>PokerEngine Package Registry</h1>
     </header>
     <main>
-        <p>Welcome to the official package registry for <strong>PokerEngine</strong>! Here you can browse and download packages compatible with the engine.</p>
+        <p>Welcome to the official package registry for <strong>PokerEngine</strong>! Browse and download packages compatible with the engine below.</p>
         <p>Check out the package list in <a href="index.json">index.json</a>.</p>
 
         <ul class="package-list">
-            <li>Example Package 1 <a href="packages/example-package-1/1.0.0.zip">Download</a></li>
-            <li>Example Package 2 <a href="packages/example-package-2/1.2.0.zip">Download</a></li>
-            <li>Example Package 3 <a href="packages/example-package-3/0.9.5.zip">Download</a></li>
+            <li style="animation-delay: 0.2s;">
+                Example Package 1
+                <a href="packages/example-package-1/1.0.0.zip">Download</a>
+            </li>
+            <li style="animation-delay: 0.4s;">
+                Example Package 2
+                <a href="packages/example-package-2/1.2.0.zip">Download</a>
+            </li>
+            <li style="animation-delay: 0.6s;">
+                Example Package 3
+                <a href="packages/example-package-3/0.9.5.zip">Download</a>
+            </li>
         </ul>
     </main>
     <footer>
