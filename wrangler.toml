@@ -1,5 +1,8 @@
 name = "pokerengine-packages"
 compatibility_date = "2026-01-22"
+main = "workers-site/index.js"
 
-type = "javascript"  # optional, or remove entirely
-site = { bucket = "./", include = ["*"], exclude = [] }
+[site]
+bucket = "./"
+include = ["*"]
+exclude = []
